@@ -1,0 +1,138 @@
+<header>
+    {{> head/head}}
+
+    <div class="hfix"></div>
+
+    <div class="header">
+        <div class="wrapper">
+            <div class="header__container">
+                <a class="header__logo" href="/index.html">
+                    <img src="/static/img/content/logo.png" alt="Логотип">
+                </a>
+                <div class="header__course">
+                    <div class="header__course-top">
+                        Все курсы
+                        {{Icon iconName="arrow__down"}}
+                    </div>
+                    <div class="header__course-top hct">
+                        Все курсы
+                        {{Icon iconName="arrow__down"}}
+                    </div>
+                    <div class="header__course-container hide">
+                        <div class="header__course-container-top">
+                            <div class="header__course-container-title">
+                                Выберите курс
+                            </div>
+                            <div class="header__course-container-close">
+                                {{Icon iconName="close"}}
+                            </div>
+                        </div>
+                        <div class="header__course-container-items">
+                            <a href="#" class="header__course-container-item">
+                                Биоэнергетика
+                            </a>
+                            <a href="#" class="header__course-container-item">
+                                Экстросенсорика
+                            </a>
+                            <a href="#" class="header__course-container-item">
+                                Медитация
+                            </a>
+                            <a href="#" class="header__course-container-item">
+                                Левитация
+                            </a>
+                        </div>
+                        <div class="header__course-container-link">
+                            <a href="#">
+                                Все курсы →
+                            </a>
+                        </div>
+                        <div class="header__course-container-help">
+                            <div class="header__course-container-help-title">Нужна помощь?</div>
+                            <form class="form321">
+                                <input type="text" name="phone" id="phone" class="phone-mask" placeholder="+7 (       )    _   _ ">
+                                <button>Перезвоните мне</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__call">
+                    <a href="tel:+74997695103">
+                        +7 (499) 769-51-03
+                    </a>
+                    <a href="tel:+972525870142">
+                        +972-525-87-0142
+                    </a>
+                </div>
+                <a href="#" class="header__login">
+                    {{Icon iconName="log"}}
+                    Войти
+                </a>
+                <div class="header__hamburger">
+                    {{Icon iconName="menu"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="header__hamburger-popup">
+    <div class="header__hamburger-blur"></div>
+    <div class="header__hamburger-menu">
+        <div class="header__hamburger-close">
+            {{Icon iconName="close"}}
+        </div>
+        <div class="header__hamburger-content">
+            <div class="header__call">
+                <a href="tel:+74997695103">
+                    +7 (499) 769-51-03
+                </a>
+                <a href="tel:+972525870142">
+                    +972-525-87-0142
+                </a>
+            </div>
+            <div class="header__hamburger-collapsible-item">
+                 <div class="header__hamburger-collapsible-header">
+                    <p>Центр Ратнера</p>
+                    {{Icon iconName="arrd"}}
+                 </div>
+                 <div class="header__hamburger-collapsible-body">
+                     <a class="header__hamburger-collapsible-link" href="akc.html">Акции</a>
+                     <a class="header__hamburger-collapsible-link" href="rasp.html">Расписание</a>
+                     <a class="header__hamburger-collapsible-link" href="reviews.html">Отзывы</a>
+                     <a class="header__hamburger-collapsible-link" href="sergey.html">Сергей Ратнер</a>
+                     <a class="header__hamburger-collapsible-link" href="sergey.html">Марина Каганович</a>
+                     <a class="header__hamburger-collapsible-link" href="gallery.html">Галерея</a>
+                 </div>
+            </div>
+            <div class="header__hamburger-collapsible-item">
+                 <div class="header__hamburger-collapsible-header">
+                    <p>Школа</p>
+                    {{Icon iconName="arrd"}} 
+                 </div>
+                 <div class="header__hamburger-collapsible-body">
+                     <a class="header__hamburger-collapsible-link" href="about_school.html">О Школе</a>
+                     <a class="header__hamburger-collapsible-link" href="course.html">Первый курс</a>
+                     <a class="header__hamburger-collapsible-link" href="course.html">Второй курс</a>
+                     <a class="header__hamburger-collapsible-link" href="school.html">Школа Медитации</a>
+                     <a class="header__hamburger-collapsible-link" href="course.html">Фундаментальная Биоэнергетика</a>
+                 </div>
+            </div>
+            <a href="catalog_med.html" class="header__hamburger-link">
+                Медитации
+            </a>
+            <a href="catalog_tren.html" class="header__hamburger-link">
+                Тренинги
+            </a>
+            <a href="blog.html" class="header__hamburger-link">
+                Блог
+            </a>
+            <a href="contact.html" class="header__hamburger-link">
+                Контакты
+            </a> 
+            <a href="#" class="header__login">
+                {{Icon iconName="log"}}
+                Войти
+            </a>
+        </div>
+    </div>
+</div>
