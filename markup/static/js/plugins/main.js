@@ -37,6 +37,7 @@ $(document).ready(function () {
 	$(".header__course-container-close").click(function() {
 		$(".header__course-container").addClass('hide')
 		$("body, html").css("overflow","auto")
+		$("body, html").css("overflow-x","hidden")
 	});
 
 
@@ -47,10 +48,12 @@ $(document).ready(function () {
 	$(".header__hamburger-blur").click(function() {
 		$(".header__hamburger-popup").removeClass("active")
 		$("body, html").css("overflow","auto")
+		$("body, html").css("overflow-x","hidden")
 	});
 	$(".header__hamburger-close").click(function() {
 		$(".header__hamburger-popup").removeClass("active")
 		$("body, html").css("overflow","auto")
+		$("body, html").css("overflow-x","hidden")
 	});
 
 
@@ -105,14 +108,22 @@ $(document).ready(function () {
 
 	$(".catalog__container-categ-top-title").click(function() {
 		$(".catalog__container-categ-checks").addClass("active")
+		$("body, html").css("overflow","hidden")
 	})
 	$(".catalog__container-categ-checks-btn").click(function() {
 		$(".catalog__container-categ-checks").removeClass("active")
+		$("body, html").css("overflow","auto")
+		$("body, html").css("overflow-x","hidden")
+	})
+	$(".catalog__container-categ-checks-close").click(function() {
+		$(".catalog__container-categ-checks").removeClass("active")
+		$("body, html").css("overflow","auto")
+		$("body, html").css("overflow-x","hidden")
 	})
 
 	// ТАЙМЕР
 	$('.countdown').downCount({
-		date: '04/30/2022 12:00:00',
+		date: '05/10/2022 12:00:00',
 		offset: -4
 	}, function () {
 		
@@ -252,8 +263,6 @@ $(document).ready(function () {
 		slidesPerView: "auto",
         spaceBetween: 30,
 		navigation: {
-			nextEl: ".swiper-button-next",
-			prevEl: ".swiper-button-prev",
 			nextEl: ".swiper-button-next.adsbh",
 			prevEl: ".swiper-button-prev.adsbh",
 		  },
@@ -276,13 +285,247 @@ $(document).ready(function () {
 	$(".kons-blur").click(function() {
 		$(".kons").addClass("hide")
 		$("body, html").css("overflow","auto")
+		$("body, html").css("overflow-x","hidden")
 	})
 	$(".kons-popup-close").click(function() {
 		$(".kons").addClass("hide")
 		$("body, html").css("overflow","auto")
+		$("body, html").css("overflow-x","hidden")
 	})
 	$(".ppbtn").click(function() {
 		$(".kons").removeClass("hide")
 		$("body, html").css("overflow","hidden")
 	})
+
+
+	// ЛИПКИЕ КАТЕГОРИИ
+
+	if ($(window).width() < 1200) {
+		$(".dpls").removeClass("stick-next-to")
+		$(".dprs").removeClass("sticky-wrapper")
+		$(".dprss").removeClass("sticky")
+	}
+	if ($(window).width() < 1020) {
+		$(".double__page-left").removeClass("stick-next-to")
+		$(".double__page-right").removeClass("sticky-wrapper")
+		$(".double__page-right-s").removeClass("sticky")
+	}
+	if ($(window).width() < 820) {
+		$(".catalog__container-items").removeClass("stick-next-to")
+		$(".catalog__container-categ").removeClass("sticky-wrapper")
+		$(".catalog__container-categ-box").removeClass("sticky")
+	}
+
+	function stickySidebar(mainBlk, sidebarWrapper, sidebarBlk) {
+
+		var main = $(mainBlk); //Our sticky block will scroll next to this one
+		
+		var stickyWrapper = $(sidebarWrapper); // General position relative wrapper for main and sticky block
+	
+		var stickyBlk = $(sidebarBlk); // Our sticky block
+	
+		var startPos = stickyBlk.offset().top; // Starting position where the block should stick
+	
+		var finishPos = main.height() - stickyBlk.innerHeight(); // Starting position where the block should stick
+		
+		stickyWrapper.height(main.height()); // Set height of sticky wrapper equal to the height of main block that we are scrolling next to
+	
+		$(window).scroll(function(){ 
+		  var currentScrollPos = $(document).scrollTop();  // Get current position of scroll
+		  
+		  if ((currentScrollPos > startPos) && (currentScrollPos <= finishPos)) { // Check if current scroll position is in range of main block height, add class stuck
+			stickyBlk.removeClass('bottom');
+			stickyBlk.addClass('stuck');
+		  }
+		  else if (currentScrollPos > finishPos) {
+			stickyBlk.removeClass('stuck');
+			stickyBlk.addClass('bottom');
+		  }  // if block current scroll is further, add class bottom
+		  else {
+			stickyBlk.removeClass('stuck');
+			stickyBlk.removeClass('bottom');
+		  } // in other cases do nothing
+		});
+		$(".double__page-left-bottom-more").click(function() {
+			
+			var main = $(mainBlk); //Our sticky block will scroll next to this one
+			
+			var stickyWrapper = $(sidebarWrapper); // General position relative wrapper for main and sticky block
+		
+			var stickyBlk = $(sidebarBlk); // Our sticky block
+		
+			var finishPos = main.height() - stickyBlk.innerHeight(); // Starting position where the block should stick
+
+			stickyWrapper.height(main.height()); // Set height of sticky wrapper equal to the height of main block that we are scrolling next to
+		
+			$(window).scroll(function(){ 
+			var currentScrollPos = $(document).scrollTop();  // Get current position of scroll
+			
+			if ((currentScrollPos > startPos) && (currentScrollPos <= finishPos)) { // Check if current scroll position is in range of main block height, add class stuck
+				stickyBlk.removeClass('bottom');
+				stickyBlk.addClass('stuck');
+			}
+			else if (currentScrollPos > finishPos) {
+				stickyBlk.removeClass('stuck');
+				stickyBlk.addClass('bottom');
+			}  // if block current scroll is further, add class bottom
+			else {
+				stickyBlk.removeClass('stuck');
+				stickyBlk.removeClass('bottom');
+			} // in other cases do nothing
+			});
+
+			stickyBlk.addClass('stuck');
+			stickyBlk.removeClass('bottom');
+
+		});	
+	};
+
+	stickySidebar ('.stick-next-to', '.sticky-wrapper', '.sticky');
+
+	if ($(window).width() < 1200) {
+		$(".dpls").removeClass("stick-next-to")
+		$(".dprs").removeClass("sticky-wrapper")
+		$(".dprss").removeClass("sticky")
+	}
+	if ($(window).width() < 1020) {
+		$(".double__page-left").removeClass("stick-next-to")
+		$(".double__page-right").removeClass("sticky-wrapper")
+		$(".double__page-right-s").removeClass("sticky")
+	}
+	if ($(window).width() < 820) {
+		$(".catalog__container-items").removeClass("stick-next-to")
+		$(".catalog__container-categ").removeClass("sticky-wrapper")
+		$(".catalog__container-categ-box").removeClass("sticky")
+	}
+
+	// if ($(window).width() < 820) {
+	// 	$(".catalog__container-items").removeClass("stick-next-to")
+	// 	$(".catalog__container-categ").removeClass("sticky-wrapper")
+	// 	$(".catalog__container-categ-box").removeClass("sticky")
+	// }
+
+	// function stickySidebar(mainBlk, sidebarWrapper, sidebarBlk) {
+
+	// 	var main = $(mainBlk); //Our sticky block will scroll next to this one
+		
+	// 	var stickyWrapper = $(sidebarWrapper); // General position relative wrapper for main and sticky block
+	
+	// 	var stickyBlk = $(sidebarBlk); // Our sticky block
+	
+	// 	var startPos = stickyBlk.offset().top; // Starting position where the block should stick
+	
+	// 	var finishPos = main.height() - stickyBlk.innerHeight(); // Starting position where the block should stick
+	
+	// 	stickyWrapper.height(main.height()); // Set height of sticky wrapper equal to the height of main block that we are scrolling next to
+	
+	// 	$(window).scroll(function(){ 
+	// 	  var currentScrollPos = $(document).scrollTop();  // Get current position of scroll
+		  
+	// 	  if ((currentScrollPos > startPos) && (currentScrollPos <= finishPos)) { // Check if current scroll position is in range of main block height, add class stuck
+	// 		stickyBlk.removeClass('bottom');
+	// 		stickyBlk.addClass('stuck');
+	// 	  }
+	// 	  else if (currentScrollPos > finishPos) {
+	// 		stickyBlk.removeClass('stuck');
+	// 		stickyBlk.addClass('bottom');
+	// 	  }  // if block current scroll is further, add class bottom
+	// 	  else {
+	// 		stickyBlk.removeClass('stuck');
+	// 		stickyBlk.removeClass('bottom');
+	// 	  } // in other cases do nothing
+	// 	});
+	
+	// };
+	
+	// stickySidebar ('.stick-next-to', '.sticky-wrapper', '.sticky');
+	
+	// if ($(window).width() < 820) {
+	// 	$(".catalog__container-items").removeClass("stick-next-to")
+	// 	$(".catalog__container-categ").removeClass("sticky-wrapper")
+	// 	$(".catalog__container-categ-box").removeClass("sticky")
+	// }
+
+
+	// ЛИПКАЯ АФИША РАСПИСАНИЕ
+
+	if ($(window).width() < 1200) {
+		$(".double__page-left").removeClass("stick-next-to-r")
+		$(".double__page-right").removeClass("sticky-wrapper-r")
+		$(".double__page-right-s").removeClass("sticky-r")
+	}
+
+	function stickySidebarR(mainBlk, sidebarWrapper, sidebarBlk) {
+
+		var main = $(mainBlk); //Our sticky block will scroll next to this one
+		
+		var stickyWrapper = $(sidebarWrapper); // General position relative wrapper for main and sticky block
+	
+		var stickyBlk = $(sidebarBlk); // Our sticky block
+	
+		var startPos = stickyBlk.offset().top; // Starting position where the block should stick
+	
+		var finishPos = main.height() - stickyBlk.innerHeight(); // Starting position where the block should stick
+	
+		stickyWrapper.height(main.height()); // Set height of sticky wrapper equal to the height of main block that we are scrolling next to
+	
+		$(window).scroll(function(){ 
+		  var currentScrollPos = $(document).scrollTop();  // Get current position of scroll
+		  
+		  if ((currentScrollPos > startPos) && (currentScrollPos <= finishPos)) { // Check if current scroll position is in range of main block height, add class stuck
+			stickyBlk.removeClass('bottom');
+			stickyBlk.addClass('stuck');
+		  }
+		  else if (currentScrollPos > finishPos) {
+			stickyBlk.removeClass('stuck');
+			stickyBlk.addClass('bottom');
+		  }  // if block current scroll is further, add class bottom
+		  else {
+			stickyBlk.removeClass('stuck');
+			stickyBlk.removeClass('bottom');
+		  } // in other cases do nothing
+		});
+		$(".double__page-left-bottom-more").click(function() {
+			
+			var main = $(mainBlk); //Our sticky block will scroll next to this one
+			
+			var stickyWrapper = $(sidebarWrapper); // General position relative wrapper for main and sticky block
+		
+			var stickyBlk = $(sidebarBlk); // Our sticky block
+		
+			var finishPos = main.height() - stickyBlk.innerHeight(); // Starting position where the block should stick
+		
+			stickyWrapper.height(main.height()); // Set height of sticky wrapper equal to the height of main block that we are scrolling next to
+		
+			$(window).scroll(function(){ 
+			var currentScrollPos = $(document).scrollTop();  // Get current position of scroll
+			
+			if ((currentScrollPos > startPos) && (currentScrollPos <= finishPos)) { // Check if current scroll position is in range of main block height, add class stuck
+				stickyBlk.removeClass('bottom');
+				stickyBlk.addClass('stuck');
+			}
+			else if (currentScrollPos > finishPos) {
+				stickyBlk.removeClass('stuck');
+				stickyBlk.addClass('bottom');
+			}  // if block current scroll is further, add class bottom
+			else {
+				stickyBlk.removeClass('stuck');
+				stickyBlk.removeClass('bottom');
+			} // in other cases do nothing
+			});
+
+			stickyBlk.addClass('stuck');
+			stickyBlk.removeClass('bottom');
+
+		});	
+	};
+
+	stickySidebarR ('.stick-next-to-r', '.sticky-wrapper-r', '.sticky-r');
+
+	if ($(window).width() < 1200) {
+		$(".double__page-left").removeClass("stick-next-to")
+		$(".double__page-right").removeClass("sticky-wrapper")
+		$(".double__page-right-s").removeClass("sticky")
+	}
+
 })

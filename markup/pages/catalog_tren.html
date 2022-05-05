@@ -12,8 +12,8 @@
         <div class="wrapper">
             <h2>Тренинги</h2>
             <div class="catalog__container">
-                <div class="catalog__container-categ">
-                    <div class="catalog__container-categ-box">
+                <div class="catalog__container-categ sticky-wrapper">
+                    <div class="catalog__container-categ-box sticky">
                         <div class="catalog__container-categ-top">
                             <div class="catalog__container-categ-top-title">
                                 Категории
@@ -31,6 +31,9 @@
                             </div>
                         </div>
                         <div class="catalog__container-categ-checks">
+                            <div class="catalog__container-categ-checks-close">
+                                {{Icon iconName="close"}}
+                            </div>
                             <div class="catalog__container-categ-checks-title cccct">Выберите категорию</div>
                             <label class="catalog__container-categ-checks-check">
                                 <input type="checkbox">
@@ -100,7 +103,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="catalog__container-items">
+                <div class="catalog__container-items stick-next-to">
                     <div class="akc-search">
                         <input type="text" placeholder="Поиск по категории">
                         <button class="akc-search-btn">
